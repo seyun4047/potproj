@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block main_area %}
+
+{% for p in post_list %}
+<div class="container">
+<!--    <div class="col-9"></div>-->
+    {% if p.head_image %}
+        <img class="card-img-top" src="{{ p.head_image.url }}" height="300px" alt="{{ p }} head image">
+    {% endif %}
+    <div class="card-body">
+        {% if p.category %}
+            <span>{{ p.category }}</span>
+        {% else %}
+            <span>미분류</span>
+        {% endif %}
+
+        <h1>{{ p.title }}</h1>
+        <p class="text-muted">by {{ p.author | upper}}</p>
+    <!--    <h4>{{ p.created_at }}</h4>-->
+        {% if p.hook_text %}
+        <h5 class="text-muted">요약: {{ p.hook_text }}</h5>
+        {% endif %}
+        <p>내용: {{ p.content | truncatechars:45}}</p>
+        <a href="{{ p.get_absolute_url }}" class="btn btn-primary">readmore</a>
+        <hr/>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

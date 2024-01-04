@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+
+{% block head_title %}
+    {{ post.title }} - Blog
+{% endblock %}}
+
+
+{% block main_area %}
+<div id="post-area">
+    {% if post.category %}
+        <span>{{ post.category }}</span>
+    {% else %}
+        <span>미분류</span>
+    {% endif %}
+    <h1>제목: {{ post.title }}</h1>
+    <p class="text-muted">작성자: {{ post.author | upper }}</p>
+    <hr/>
+    <p class="text-muted">요약: {{ post.hook_text }}</p>
+    <p>작성된 날짜: {{ post.created_at}}</p>
+    <p>{{ post.content }}</p>
+    {% if post.head_image %}
+            <img class="card-img-top" src="{{ post.head_image.url }}" height="300px" alt="{{ p }} head image">
+    {% endif %}
+    {% if post.file_upload %}
+        <a href="{{ post.file_upload.url }}" class="btn btn-primary" role="button" download>Download</a>
+    {% endif %}
+
+    <hr/>
+</div>
+<div id="comment-area">
+
+</div>
+<hr3>댓글 창</hr3>
+{% endblock %}
