@@ -57,5 +57,6 @@ class Post2(models.Model):
     def __str__(self):
         return f'{self.title}              {self.created_at} {self.updated_at}'
 
+
     class Meta:
         verbose_name_plural = 'Intro_Image-seyun'
