@@ -1,7 +1,22 @@
 {% extends 'single_pages/base.html' %}
 
+
+
 {% block main_area %}
+<div class="img-container">
     {% for p in landing_list %}
-      <a href="/blog/"><img class="img-fluid" src="{{ p.intro_img.url }}" alt="Photo"></a>
+      <a>
+          <img src="{{ p.intro_img.url }}" onclick="openDialog(this)" alt="Photo">
+      </a>
   {% endfor %}
+</div>
+{% endblock %}
+
+{% block dialog_area %}
+<!--dialog-->
+<div id="overlay">
+    <div id="dialog" class="" onClick="closeDialog()">
+        <img id="expandedImg" src="" alt="Photo">
+    </div>
+</div>
 {% endblock %}
