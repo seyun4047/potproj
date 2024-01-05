@@ -1,0 +1,16 @@
+{% extends 'single_pages/base.html' %}
+
+{% block head_title %}
+    {{ post.title }} - Blog
+{% endblock %}}
+
+
+{% block main_area %}
+<div id="post-area">
+    <h1>제목: {{ post.title }}</h1>
+    {% if post.intro_img %}
+        <img src="{{ post.intro_img.url }}" height="300px" alt="photo">
+    {% endif %}
+</div>
+
+{% endblock %}

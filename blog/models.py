@@ -31,7 +31,7 @@ class Post(models.Model):
         return f'[{self.pk}] {self.title} {self.created_at} {self.updated_at} :: {self.author}'
 
     def get_absolute_url(self):
-        return f'blog/{self.pk}/'
+        return f'/blog/{self.pk}/'
 
     def delete(self, *args, **kwargs):
         # 모델이 삭제될 때 연결된 파일도 함께 삭제
