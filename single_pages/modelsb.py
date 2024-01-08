@@ -1,5 +1,7 @@
-# \from django.db import models
+# from django.db import models
 # import os
+# from django.shortcuts import get_object_or_404
+# from django.http import JsonResponse
 # from django.contrib.auth.models import User
 #
 # # Create your models here.
@@ -25,10 +27,10 @@
 #         super().delete(*args, **kwargs)
 #
 #     def __str__(self):
-#         return f'{self.title}              {self.created_at} {self.updated_at}'
+#         return f'{self.pk} {self.title}              {self.created_at} {self.updated_at}'
 #
 #     def get_absolute_url(self):
-#         return f'{self.pk}/'
+#         return f'/{self.pk}/'
 #
 #     class Meta:
 #         verbose_name_plural = 'Intro_Image'
@@ -53,6 +55,10 @@
 #             if os.path.exists(file_path):
 #                 os.remove(file_path)
 #         super().delete(*args, **kwargs)
+#
+#
+#     def get_absolute_url(self):
+#         return f'/s/{self.pk}/'
 #
 #     def __str__(self):
 #         return f'{self.pk} {self.title}              {self.created_at} {self.updated_at}'
